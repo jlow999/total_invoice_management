@@ -34,5 +34,5 @@ app.get("/api/invoices/:id", async (req, res, next) => {
 const port = process.env.PORT || 8080
 
 app.listen(port, () => {
-  console.log(`invoices_svc listening on ${port}`)
+  console.log(`expected_date_svc listening on ${port}`)
 })
