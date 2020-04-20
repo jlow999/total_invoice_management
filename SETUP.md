@@ -347,3 +347,20 @@ $ kubectl run curl --image=radial/busyboxplus:curl -i --tty
 [ root@curl-696777f579-qwjcr:/ ]$ curl 10.104.86.220/api/invoices/1
 {"id":1,"ref":"INV-1","amount":100,"balance":90,"ccy":"GBP"}
 ```
+
+#### Get IP addresses of the pods
+```
+$ kubectl get pods -o wide
+
+NAME                                 READY   STATUS    RESTARTS   AGE     IP            NODE          NOMINATED NODE   READINESS GATES
+auth-svc-f9d69897f-6scct             1/1     Running   0          3h4m    10.244.1.48   slave-node    <none>           <none>
+auth-svc-f9d69897f-l8vns             1/1     Running   0          3h4m    10.244.0.15   master-node   <none>           <none>
+auth-svc-f9d69897f-whmzm             1/1     Running   0          3h4m    10.244.1.49   slave-node    <none>           <none>
+curl                                 1/1     Running   1          5h59m   10.244.1.46   slave-node    <none>           <none>
+expected-date-svc-6d96c4d8bf-7ng5f   1/1     Running   0          6h31m   10.244.0.12   master-node   <none>           <none>
+expected-date-svc-6d96c4d8bf-bwgkb   1/1     Running   0          6h31m   10.244.0.11   master-node   <none>           <none>
+expected-date-svc-6d96c4d8bf-pckcf   1/1     Running   0          6h31m   10.244.0.10   master-node   <none>           <none>
+invoices-svc-5f658b5989-6jzl4        1/1     Running   2          5h37m   10.244.1.47   slave-node    <none>           <none>
+invoices-svc-5f658b5989-gpxhb        1/1     Running   0          5h37m   10.244.0.13   master-node   <none>           <none>
+invoices-svc-5f658b5989-lp9xb        1/1     Running   0          5h37m   10.244.0.14   master-node   <none>           <none>
+```
