@@ -328,6 +328,24 @@ sudo swapoff -a
 sudo kubeadm join 192.168.174.152:6443 --token 525ah9.dhngkhnqkdfjxf59 --discovery-token-ca-cert-hash sha256:9fdc5a28fa64045f5923bd98472144da56ed56d98a8342dfae08b1797d97c876
 ```
 
+#### kubeadm token generate command
+This command will print out a randomly-generated bootstrap token that can be used with the “init” and “join” commands.
+
+```
+$ kubeadm token generate
+
+n0xphk.2pvfkn18pzyvlufr
+```
+
+The run the command: 
+
+```
+$ kubeadm token create n0xphk.2pvfkn18pzyvlufr --print-join-command --ttl=0
+
+WARNING: kubeadm cannot validate component configs for API groups [kubelet.config.k8s.io kubeproxy.config.k8s.io]
+kubeadm join 192.168.174.152:6443 --token n0xphk.2pvfkn18pzyvlufr     --discovery-token-ca-cert-hash sha256:9fdc5a28fa64045f5923bd98472144da56ed56d98a8342dfae08b1797d97c876
+```
+
 #### Run below command to remove the taint from master node and then you should be able to deploy your pod on that node
 ```
 $ kubectl get nodes
