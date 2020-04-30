@@ -364,3 +364,8 @@ invoices-svc-5f658b5989-6jzl4        1/1     Running   2          5h37m   10.244
 invoices-svc-5f658b5989-gpxhb        1/1     Running   0          5h37m   10.244.0.13   master-node   <none>           <none>
 invoices-svc-5f658b5989-lp9xb        1/1     Running   0          5h37m   10.244.0.14   master-node   <none>           <none>
 ```
+
+#### Config Minikube to share our local docker registry, else it won’t be able to find the docker images that we build.
+```
+$ eval $(minikube docker-env)
+```
