@@ -3,7 +3,10 @@ const express = require("express")
 const app = express()
 
 app.use((req, res) => {
-  if (req.get('authorization') === process.env.TOKEN) {
+  const token = req.get('authorization');
+  console.log(`authorization token ${token}`);
+
+  if (token === process.env.TOKEN) {
     res.json({
       ok: true
     })

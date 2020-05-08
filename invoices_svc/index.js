@@ -16,6 +16,7 @@ const addExpectedDate = async invoice => {
 }
 
 app.get("/api/invoices/:id", async (req, res, next) => {
+  console.log(`/api/invoices/${req.params.id}`);
   try {
     const id = parseInt(req.params.id)
     const invoice = await addExpectedDate({
@@ -34,5 +35,5 @@ app.get("/api/invoices/:id", async (req, res, next) => {
 const port = process.env.PORT || 8080
 
 app.listen(port, () => {
-  console.log(`expected_date_svc listening on ${port}`)
+  console.log(`invoices_svc listening on ${port}`);
 })
